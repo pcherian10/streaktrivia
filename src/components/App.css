@@ -1,0 +1,13 @@
+html,
+body,
+
+.app {
+    height: 100vh;
+    background: #eee;
+    padding: 1em;
+}
+
+#form-element {
+    display: 'block';
+    margin: '10px';
+}

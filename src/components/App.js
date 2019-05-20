@@ -1,6 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Header from './Header'
+import Login from './auth/Login'
+import Register from './auth/Register'
+
 
 
 
@@ -17,6 +20,8 @@ const App = () => {
                 <div>
                     <Header />
                     <Route exact path="/" component={Landing}/>
+                    <Route path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
                     <Route path="/rankings" component={Dashboard}/>
                     <Route path="/game" component={PlayGame}/>
                     <Route path="/questions/new" component={SubmitAQuestion}/>
