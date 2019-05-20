@@ -11,15 +11,18 @@ class Header extends Component {
                     <i className="question circle icon"></i>
                     Streak Trivia!
                 </div>
-                <a class="item">
-                    About Us
-                </a>
-                <a class="item">
-                Jobs
-                </a>
-                <a class="item">
-                Locations
-                </a>
+               
+                <div className="right item">
+                    <Link className="item">
+                        Play Game
+                    </Link>
+                    <Link className="item">
+                        Submit a Question!
+                    </Link>
+                    <Link class="item">
+                        Logout
+                    </Link>
+                </div>
           </div>
         );
     }
