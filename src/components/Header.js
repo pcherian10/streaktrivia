@@ -44,7 +44,7 @@ class Header extends Component {
                     <Link
                       key="3"
                       onClick={() => this.props.logout()}
-                      to="/logout"
+                      to="/"
                       className="item"
                      >
                         Log Out

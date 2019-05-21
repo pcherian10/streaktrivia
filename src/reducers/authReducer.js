@@ -7,7 +7,7 @@ export default function(state = null, action) {
             return action.payload || false
         case LOGOUT:
             localStorage.removeItem('token')
-            break;
+            return;
         default:
             return state;
     }

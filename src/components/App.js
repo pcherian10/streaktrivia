@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Header from './Header'
 import Login from './auth/Login'
 import Register from './auth/Register'
 import * as actions from '../actions'
 
+import Header from './Header'
+import PlayGame from './PlayGame'
+
 
 const Landing = () => <h2>Landing</h2>
-const Dashboard = () => <h2>Dashboard</h2>
-const PlayGame = () => <h2>Game</h2>
+const Stats = () => <h2>Your stats</h2>
 const SubmitAQuestion = () => <h2>Submit a Question</h2>
 
 
@@ -32,7 +33,7 @@ class App extends Component {
                         <Route exact path="/" component={Landing}/>
                         <Route path="/login" component={Login} />
                         <Route path="/register" component={Register} />
-                        <Route path="/rankings" component={Dashboard}/>
+                        <Route path="/stats" component={Stats}/>
                         <Route path="/game" component={PlayGame}/>
                         <Route path="/questions/new" component={SubmitAQuestion}/>
                     </div>

@@ -1,4 +1,4 @@
-import { FETCH_USER, LOGOUT } from "./types"
+import { FETCH_USER, LOGOUT, FETCH_QUESTION } from "./types"
 import URL_ROOT from './URL'
 
 const token = localStorage.getItem('token');
@@ -9,6 +9,8 @@ const headers = {
     Authorization: token
   };
 
+
+//=================================================USER FUNCTIONS
 
 export const getCurrentUser = (email, password) => {
   return dispatch => fetch(`${URL_ROOT}current_user`, 
@@ -49,12 +51,30 @@ export function addUser (user) {
     }
    }
    
-   export function logout () {
+   export const logout = () => {
      return dispatch => {
-        window.location.href = '/';
        dispatch({type: LOGOUT })
      }
    }
+
+  //=================================================QUESTION FUNCTIONS
+
+  export const fetchQuestion = (user) => {
+    return dispatch => {
+      fetch(`${URL_ROOT}users/${user.id}/questions`, {
+        method: 'GET',
+        headers: headers,
+      }).then(res => res.json())
+        .then(res => {
+          dispatch({type: FETCH_QUESTION, payload: res})
+        })
+      }
+
+  }
+
+
+
+
 
 
 
