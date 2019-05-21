@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { addUser } from '../../actions/index'
+import { connect } from 'react-redux'
 import { Grid, Form, Segment, Button, Header, Message, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import '../App.css'
@@ -21,8 +23,14 @@ class Register extends Component {
     }
 
     handleSubmit = event => {
-
-        
+        event.preventDefault();
+        if(this.isFormValid()) {
+            this.setState({ errors: [], loading: true})
+            const { username, email, password } = this.state
+            const user = { username, email, password }
+            this.props.addUser(user)
+            this.setState({loading: false})
+        }
     }
 
     isFormValid = () => {
@@ -136,4 +144,10 @@ class Register extends Component {
 
 }
 
-export default Register;
+const mapDispatchToProps = dispatch => {
+    return {
+        addUser: user => dispatch(addUser(user))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Register);

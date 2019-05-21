@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Grid, Form, Segment, Button, Header, Message, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import '../App.css'
+import * as actions from '../../actions'
+import { connect } from 'react-redux'
 
 class Login extends Component {
 
@@ -20,8 +22,7 @@ class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-
-
+        this.props.login(this.state.email, this.state.password)
     }
 
     isFormValid = ({ email, password }) => email && password;
@@ -88,4 +89,4 @@ class Login extends Component {
 
 }
 
-export default Login;
+export default connect(null, actions)(Login);

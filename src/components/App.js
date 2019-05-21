@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Header from './Header'
 import Login from './auth/Login'
 import Register from './auth/Register'
-
-
+import * as actions from '../actions'
 
 
 const Landing = () => <h2>Landing</h2>
@@ -13,22 +13,33 @@ const PlayGame = () => <h2>Game</h2>
 const SubmitAQuestion = () => <h2>Submit a Question</h2>
 
 
-const App = () => {
-    return (
-        <div>
-            <BrowserRouter>
-                <div>
-                    <Header />
-                    <Route exact path="/" component={Landing}/>
-                    <Route path="/login" component={Login} />
-                    <Route path="/register" component={Register} />
-                    <Route path="/rankings" component={Dashboard}/>
-                    <Route path="/game" component={PlayGame}/>
-                    <Route path="/questions/new" component={SubmitAQuestion}/>
-                </div>
-            </BrowserRouter>
-        </div>
-    )
+class App extends Component {
+
+
+    componentDidMount () {
+        const token = localStorage.getItem('token');
+        if(token) {
+            this.props.getCurrentUser();
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <BrowserRouter>
+                    <div>
+                        <Header />
+                        <Route exact path="/" component={Landing}/>
+                        <Route path="/login" component={Login} />
+                        <Route path="/register" component={Register} />
+                        <Route path="/rankings" component={Dashboard}/>
+                        <Route path="/game" component={PlayGame}/>
+                        <Route path="/questions/new" component={SubmitAQuestion}/>
+                    </div>
+                </BrowserRouter>
+            </div>
+        )
+        }
 }
 
-export default App;
+export default connect(null, actions)(App);
