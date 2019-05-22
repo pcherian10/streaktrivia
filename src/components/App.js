@@ -43,4 +43,8 @@ class App extends Component {
         }
 }
 
-export default connect(null, actions)(App);
+const mapStateToProps = ({ auth }) => {
+    return { auth }
+}
+
+export default connect(mapStateToProps, actions)(App);

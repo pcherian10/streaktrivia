@@ -59,9 +59,9 @@ export function addUser (user) {
 
   //=================================================QUESTION FUNCTIONS
 
-  export const fetchQuestion = (user) => {
+  export const fetchQuestion = user => {
     return dispatch => {
-      fetch(`${URL_ROOT}users/${user.id}/questions`, {
+      fetch(`${URL_ROOT}users/${user}/question`, {
         method: 'GET',
         headers: headers,
       }).then(res => res.json())

@@ -36,10 +36,10 @@ class Header extends Component {
                     </Link>,
                     <Link
                         key="2"
-                        to="/rankings"
+                        to="/stats"
                         className="item"
                     >
-                        Rankings
+                        Stats
                     </Link>,
                     <Link
                       key="3"
@@ -60,7 +60,7 @@ class Header extends Component {
         return (
             <div className="ui green inverted menu"> 
                 <Link 
-                    to={this.props.auth ? '/rankings' : '/'}
+                    to={this.props.auth ? '/stats' : '/'}
                     className="ui header item large"
                 >  
                     <i className="question circle icon"></i>

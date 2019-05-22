@@ -81,7 +81,7 @@ class Register extends Component {
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as="h2" icon color="blue" textAlign="center">
                         <Icon name="question circle" color="green" />
-                        Register to Play!
+                        Sign Up for Streak Trivia
                     </Header>
                     {errors.length > 0 && (
                         <Message error>
