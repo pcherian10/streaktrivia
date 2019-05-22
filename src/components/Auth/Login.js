@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+import  { connect } from 'react-redux'
 import { FETCH_USER } from "../../actions/types"
 import { headers, handleErrors } from "../../actions/index"
 import URL_ROOT from '../../actions/URL'
-import { Grid, Form, Segment, Button, Header, Message, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import  { connect } from 'react-redux'
+import { Grid, Form, Segment, Button, Header, Message, Icon } from 'semantic-ui-react'
 import '../App.css'
 
 

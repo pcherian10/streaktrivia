@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { addUser } from '../../actions/index'
+import { FETCH_USER } from "../../actions/types"
+import { headers, handleErrors } from "../../actions/index"
+import URL_ROOT from '../../actions/URL'
 import { connect } from 'react-redux'
 import { Grid, Form, Segment, Button, Header, Message, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
@@ -28,9 +30,28 @@ class Register extends Component {
             this.setState({ errors: [], loading: true})
             const { username, email, password } = this.state
             const user = { username, email, password }
-            this.props.addUser(user)
-            this.setState({loading: false})
-        }
+            console.log(user)
+            fetch(`${URL_ROOT}users`, {
+                method: 'POST',
+                headers: headers,
+                data: {},
+                dataType: "JSON",
+                body: JSON.stringify({ user })
+              }).then(handleErrors)
+                .then(res => res.json())
+                .then(res => {
+                    localStorage.setItem('token', res.id)
+                    window.location.href = '/stats';
+                    this.props.dispatch({type: FETCH_USER, payload: res})
+                })
+                .catch(err => {
+                    console.log(err);
+                    this.setState({ 
+                        errors: this.state.errors.concat(err), 
+                        loading: false 
+                    });
+                });
+            }
     }
 
     isFormValid = () => {
@@ -144,10 +165,4 @@ class Register extends Component {
 
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addUser: user => dispatch(addUser(user))
-    }
-}
-
-export default connect(null, mapDispatchToProps)(Register);
+export default connect()(Register);
