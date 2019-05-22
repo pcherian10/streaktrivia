@@ -20,44 +20,48 @@ class PlayGame extends Component {
         return(
             <Grid textAlign="center" verticalAlign="middle" className="app">
                 <Grid.Column style={{ maxWidth: 450}}>
-                <Header as="h3" icon color="green" textAlign="center">
-                    <Icon name="question circle" color="yellow" />
-                </Header>
-                <Header as="h4" icon color="green" textAlign="center">
-                    {question}
-                </Header>
+                    
                 <Form onSubmit={this.handleSubmit} size="large">
                     <Segment stacked>
+                        <Header as="h1" icon color="green" textAlign="center">
+                            Streak: 0
+                        </Header>
+                        <Header as="h4" icon color="green" textAlign="center">
+                            {question}
+                        </Header>
                         <Form.Field>
-                        <Radio
-                            label={first_choice}
-                            value={1}
-                            checked={this.state.value === 1}
-                            onChange={this.onRadioChange}
-                        />
+                            <Radio
+                                label={first_choice}
+                                value={1}
+                                checked={this.state.value === 1}
+                                onChange={this.onRadioChange}
+                            />
                         </Form.Field>
                         <br></br>
 
                         <Form.Field>
-                        <Radio
-                            label={second_choice}
-                            value={2}
-                            checked={this.state.value === 2}
-                            onChange={this.onRadioChange}
-                        />
+                            <Radio
+                                label={second_choice}
+                                value={2}
+                                checked={this.state.value === 2}
+                                onChange={this.onRadioChange}
+                            />
                         </Form.Field>
                         <br></br>
 
                         <Form.Field>
-                        <Radio
-                            label={third_choice}
-                            value={3}
-                            checked={this.state.value === 3}
-                            onChange={this.onRadioChange}
-                        />
+                            <Radio
+                                label={third_choice}
+                                value={3}
+                                checked={this.state.value === 3}
+                                onChange={this.onRadioChange}
+                            />
                         </Form.Field>
                         <br></br>
                     </Segment>
+                    <Button>
+                        
+                    </Button>
                 </Form>
                 </Grid.Column>
             </Grid>
@@ -65,8 +69,6 @@ class PlayGame extends Component {
     }
 
 }
-
-
 
 
 const mapStateToProps = ({ question, auth }) => {

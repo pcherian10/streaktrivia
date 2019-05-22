@@ -6,9 +6,25 @@ import * as actions from '../actions'
 class Header extends Component {
 
     renderContent () {
-        console.log('auth state', this.props.auth)
         switch(this.props.auth) {
             case null:
+                return [
+                    <Link 
+                        key="1"
+                        className="item"
+                        to="/register"
+                    >
+                        Sign Up
+                    </Link>,
+                    <Link 
+                        key="2"
+                        className="item"
+                        to="/login"
+                    >
+                        Login
+                    </Link>
+                ]
+            case false:
                 return [
                     <Link 
                         key="1"

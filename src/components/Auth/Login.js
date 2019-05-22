@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { FETCH_USER } from "../../actions/types"
+import { headers, handleErrors } from "../../actions/index"
+import URL_ROOT from '../../actions/URL'
 import { Grid, Form, Segment, Button, Header, Message, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import  { connect } from 'react-redux'
 import '../App.css'
-import * as actions from '../../actions'
-import { connect } from 'react-redux'
+
 
 class Login extends Component {
 
@@ -22,8 +25,31 @@ class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.login(this.state.email, this.state.password)
-    }
+        const { email, password } = this.state
+        if(this.isFormValid(this.state)) {
+            this.setState({ errors: [], loading: true})
+            fetch(`${URL_ROOT}auth`, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({ email, password })
+              }).then(handleErrors)
+                .then(res => res.json())
+                .then(res => {
+                  console.log(res);
+                  localStorage.setItem('token', res.id)
+                  window.location.href = '/stats';
+                  this.props.dispatch({type: FETCH_USER, payload: res})
+                })
+                .catch(err => {
+                  console.log(err);
+                  this.setState({ 
+                      errors: this.state.errors.concat(err), 
+                      loading: false 
+                    });
+                });
+        }
+    }  
+     
 
     isFormValid = ({ email, password }) => email && password;
 
@@ -39,7 +65,6 @@ class Login extends Component {
 
     render() {
         const { email, password, loading, errors } = this.state
-
         return (
             <Grid textAlign = "center" verticalAlign="top" className="app">
                 <Grid.Column style={{ maxWidth: 450 }}>
@@ -89,4 +114,6 @@ class Login extends Component {
 
 }
 
-export default connect(null, actions)(Login);
+
+
+export default connect()(Login);

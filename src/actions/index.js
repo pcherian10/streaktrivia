@@ -1,9 +1,9 @@
 import { FETCH_USER, LOGOUT, FETCH_QUESTION } from "./types"
 import URL_ROOT from './URL'
 
-const token = localStorage.getItem('token');
+export const token = localStorage.getItem('token');
 
-const headers = {
+export const headers = {
     'Content-Type': 'application/json',
     Accepts: 'application/json',
     Authorization: token
@@ -12,13 +12,21 @@ const headers = {
 
 //=================================================USER FUNCTIONS
 
+export const handleErrors = (response) => {
+  console.log(response)
+  if (!response.ok) throw Error(response.statusText);
+  return response
+}
+
 export const getCurrentUser = (email, password) => {
   return dispatch => fetch(`${URL_ROOT}current_user`, 
     { headers })
+    .then(handleErrors)
     .then(res => res.json())
-    .then(res => {
-        dispatch({type: FETCH_USER, payload: res})
-      });
+    .then(res => { dispatch({type: FETCH_USER, payload: res}) })
+    .catch(function(error) {
+      console.log(error);
+    })
 }
 
 export function addUser (user) {
@@ -29,28 +37,14 @@ export function addUser (user) {
         data: {},
         dataType: "JSON",
         body: JSON.stringify({ user })
-      }).then(res => res.json())
+      }).then(handleErrors)
+      .then(res => res.json())
       .then(res => {
         dispatch({type: FETCH_USER, payload: res})
       })
     }
   };
 
-  export function login (email, password) {
-    return dispatch => {
-    fetch(`${URL_ROOT}auth`, {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify({ email, password })
-    }).then(res => res.json())
-      .then(res => {
-        localStorage.setItem('token', res.id)
-        window.location.href = '/rankings';
-        dispatch({type: FETCH_USER, payload: res})
-      })
-    }
-   }
-   
    export const logout = () => {
      return dispatch => {
        dispatch({type: LOGOUT })
@@ -64,10 +58,11 @@ export function addUser (user) {
       fetch(`${URL_ROOT}users/${user}/question`, {
         method: 'GET',
         headers: headers,
-      }).then(res => res.json())
-        .then(res => {
+      })
+      .then(res => res.json())
+      .then(res => {
           dispatch({type: FETCH_QUESTION, payload: res})
-        })
+      })
       }
 
   }
