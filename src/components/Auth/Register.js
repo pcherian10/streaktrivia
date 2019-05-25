@@ -45,7 +45,6 @@ class Register extends Component {
                     this.props.dispatch({type: FETCH_USER, payload: res})
                 })
                 .catch(err => {
-                    console.log(err);
                     this.setState({ 
                         errors: this.state.errors.concat(err), 
                         loading: false 

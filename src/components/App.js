@@ -6,7 +6,7 @@ import Register from './auth/Register'
 import * as actions from '../actions'
 
 import Header from './Header'
-import PlayGame from './PlayGame'
+import GameContainer from './GameContainer'
 
 
 const Landing = () => <h2>Landing</h2>
@@ -34,7 +34,7 @@ class App extends Component {
                         <Route path="/login" component={Login} />
                         <Route path="/register" component={Register} />
                         <Route path="/stats" component={Stats}/>
-                        <Route path="/game" component={PlayGame}/>
+                        <Route path="/game" component={GameContainer}/>
                         <Route path="/questions/new" component={SubmitAQuestion}/>
                     </div>
                 </BrowserRouter>

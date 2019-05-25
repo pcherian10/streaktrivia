@@ -35,13 +35,11 @@ class Login extends Component {
               }).then(handleErrors)
                 .then(res => res.json())
                 .then(res => {
-                  console.log(res);
                   localStorage.setItem('token', res.id)
                   window.location.href = '/stats';
                   this.props.dispatch({type: FETCH_USER, payload: res})
                 })
                 .catch(err => {
-                  console.log(err);
                   this.setState({ 
                       errors: this.state.errors.concat(err), 
                       loading: false 
