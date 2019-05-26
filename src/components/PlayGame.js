@@ -1,6 +1,6 @@
 import React, { Component } from 'react' 
 import { connect } from 'react-redux'
-import { fetchQuestion } from '../actions'
+import { fetchQuestion, updateStreak } from '../actions'
 import { headers, handleErrors } from '../actions/index'
 import { Form, Segment, Button, Header, Radio } from 'semantic-ui-react'
 import URL_ROOT from '../actions/URL'
@@ -19,6 +19,9 @@ class PlayGame extends Component {
     componentDidUpdate(prevProps) {
         if(this.props.changeQuestion !== prevProps.changeQuestion) {
             this.props.fetchQuestion(localStorage.getItem('token'));
+            this.setState({
+                userAnswer: ""
+            })
         }
     }
 
@@ -28,12 +31,6 @@ class PlayGame extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-
-        //ping database to create attempt record in database
-            //pass user_id and question_id params to attempt to create
-            //response should return value of 0 or 1
-                //if 0, then showNextQuestion should be set to false.
-                //if 1, then showNextQuestion should be set to true.
         
         const user_id = localStorage.getItem('token')
         const question_id = this.props.question.id
@@ -49,14 +46,21 @@ class PlayGame extends Component {
         }).then(handleErrors)
           .then(res => res.json())
           .then(res => {
-                console.log(res)
-                if (res.correct_answer === 4) {
-                    this.props.correctAnswer(res.correct_answer)
-                } else {
-                    this.props.incorrectAnswer();
-                }
+                const responseValues = Object.values(this.props.question)
+                const choices = [responseValues[2], responseValues[3], responseValues[4]]
+                console.log(choices)
+                this.props.updateStreak(localStorage.getItem('token'))
+
+                res.correct_answer === 4 ? 
+                this.props.correctAnswer() 
+                : 
+                this.props.incorrectAnswer(choices, res.correct_answer - 1)  
+                
           })
-                 
+
+          
+
+
     }
 
     renderQuestion = () => {
@@ -123,4 +127,4 @@ const mapStateToProps = ({ question }) => {
     return { question }
 }
 
-export default connect(mapStateToProps, { fetchQuestion } )(PlayGame);
+export default connect(mapStateToProps, { fetchQuestion, updateStreak } )(PlayGame);

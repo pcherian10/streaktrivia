@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Header, Message } from 'semantic-ui-react'
+import { Grid, Header, Message, Icon} from 'semantic-ui-react'
 import PlayGame from './PlayGame'
 import RestartGame from './RestartGame'
 
@@ -9,28 +9,35 @@ class GameContainer extends Component {
     state = {
         showNextQuestion: true,
         changeQuestion: false,
-        message: null
+        correctAnswer: null
     }
 
-    //maybe a questionChange variable will keep track of whether component needs to update
-
     renderContent() {
-        
+        const { correctAnswer } = this.state
+
         if(this.state.showNextQuestion) {
             return (
                 <div>
-                    <Message>{this.state.message}</Message> 
-                    <PlayGame changeQuestion={this.state.changeQuestion} correctAnswer={() => this.setState({ changeQuestion: !this.state.changeQuestion, message: "Correct!"})}
-                    incorrectAnswer={() => this.setState({ showNextQuestion: false, message: "Incorrect"})}/>
+                    <Message hidden={ correctAnswer === "Correct! On to the next!" ? false : true } color={"green"}>
+                        <Icon name="smile outline" size="big"></Icon>
+                        {correctAnswer}
+                    </Message>
+                    <PlayGame 
+                        changeQuestion={this.state.changeQuestion} 
+                        correctAnswer={() => this.setState({ changeQuestion: !this.state.changeQuestion,  correctAnswer: "Correct! On to the next!"})}
+                        incorrectAnswer={
+                            (choices, correctAnswerIndex) => this.setState({ 
+                                showNextQuestion: false,
+                                correctAnswer: choices[correctAnswerIndex]
+                        })}/>
                 </div>
             )
         }
-        return <RestartGame restart={() => this.setState({ showNextQuestion: true })}/>
+        return <RestartGame correctAnswer={correctAnswer} restart={() => this.setState({ showNextQuestion: true })}/>
     }
 
 
     render () {
-       
         return (
             <Grid textAlign="center" verticalAlign="top" className="app">
                 <Grid.Column style={{ maxWidth: 450}}>   
