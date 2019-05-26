@@ -1,3 +1,3 @@
-const URL_ROOT = "http://localhost:3001/api/v2/"
+const URL_ROOT = "https://streak-trivia-api.herokuapp.com/"
 
 export default URL_ROOT
