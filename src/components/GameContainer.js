@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Grid, Header, Message, Icon} from 'semantic-ui-react'
 import PlayGame from './PlayGame'
 import RestartGame from './RestartGame'
@@ -9,7 +10,8 @@ class GameContainer extends Component {
     state = {
         showNextQuestion: true,
         changeQuestion: false,
-        correctAnswer: null
+        correctAnswer: null,
+        currentStreak: 0
     }
 
     renderContent() {
@@ -24,11 +26,15 @@ class GameContainer extends Component {
                     </Message>
                     <PlayGame 
                         changeQuestion={this.state.changeQuestion} 
-                        correctAnswer={() => this.setState({ changeQuestion: !this.state.changeQuestion,  correctAnswer: "Correct! On to the next!"})}
+                        correctAnswer={(streak) => this.setState({ 
+                                changeQuestion: !this.state.changeQuestion,  
+                                correctAnswer: "Correct! On to the next!", 
+                                currentStreak: streak })}
                         incorrectAnswer={
                             (choices, correctAnswerIndex) => this.setState({ 
                                 showNextQuestion: false,
-                                correctAnswer: choices[correctAnswerIndex]
+                                correctAnswer: choices[correctAnswerIndex],
+                                currentStreak: 0
                         })}/>
                 </div>
             )
@@ -38,12 +44,14 @@ class GameContainer extends Component {
 
 
     render () {
+        const { currentStreak } = this.state;
+        console.log(currentStreak)
         return (
             <Grid textAlign="center" verticalAlign="top" className="app">
-                <Grid.Column style={{ maxWidth: 450}}>   
-                    <Header as="h2" icon color="green" textAlign="center">
-                        Streak: 0
-                    </Header>
+                <Grid.Column style={{ maxWidth: 450}}> 
+                <Header as="h2" icon color="green" textAlign="center">
+                        Streak: {currentStreak ? currentStreak : 0}
+                </Header>  
                      {this.renderContent()}
                 </Grid.Column>
             </Grid> 
@@ -55,4 +63,8 @@ class GameContainer extends Component {
 
 }
 
-export default GameContainer;
+const mapStateToProps = ({ streak }) => {
+    return { streak }
+}
+
+export default connect(mapStateToProps, null)(GameContainer);
