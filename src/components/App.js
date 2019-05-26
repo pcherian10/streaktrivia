@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Login from './auth/Login'
-import Register from './auth/Register'
+import Login from './Auth/Login'
+import Register from './Auth/Register'
 import * as actions from '../actions'
 
 import Header from './Header'
