@@ -50,15 +50,22 @@ class Header extends Component {
                     >
                         Play Game
                     </Link>,
-                    <Link
+                     <Link
+                        key="3"
+                        to="/questions"
+                        className="item"
+                    >
+                        Your Questions
+                     </Link>,
+                     <Link
                         key="2"
                         to="/stats"
                         className="item"
                     >
-                        Stats
+                     Stats
                     </Link>,
                     <Link
-                      key="3"
+                      key="4"
                       onClick={() => this.props.logout()}
                       to="/"
                       className="item"

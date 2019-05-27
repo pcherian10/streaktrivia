@@ -1,6 +1,6 @@
 import React, { Component } from 'react' 
 import { connect } from 'react-redux'
-import { fetchQuestion } from '../actions'
+import { fetchQuestion, fetchStreak} from '../actions'
 import { headers, handleErrors } from '../actions/index'
 import { Form, Segment, Button, Header, Radio } from 'semantic-ui-react'
 import URL_ROOT from '../actions/URL'
@@ -50,8 +50,11 @@ class PlayGame extends Component {
                 const responseValues = Object.values(this.props.question)
                 const choices = [responseValues[2], responseValues[3], responseValues[4]]
                 console.log(choices)
+
+                this.props.fetchStreak(localStorage.getItem('token'))
+
                 res.correct_answer === 4 ? 
-                this.props.correctAnswer(res.current_streak) 
+                this.props.correctAnswer() 
                 : 
                 this.props.incorrectAnswer(choices, res.correct_answer - 1)  
                 
@@ -124,4 +127,4 @@ const mapStateToProps = ({ question }) => {
     return { question }
 }
 
-export default connect(mapStateToProps, { fetchQuestion } )(PlayGame);
+export default connect(mapStateToProps, { fetchQuestion, fetchStreak } )(PlayGame);

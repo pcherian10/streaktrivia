@@ -4,14 +4,16 @@ import { connect } from 'react-redux'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 import * as actions from '../actions'
+import './App.css'
 
 import Header from './Header'
 import GameContainer from './GameContainer'
+import QuestionDashboard from './Questions/QuestionDashboard'
 
 
+const QuestionNew = () => <h2>QuestionNew</h2>
 const Landing = () => <h2>Landing</h2>
 const Stats = () => <h2>Your stats</h2>
-const SubmitAQuestion = () => <h2>Submit a Question</h2>
 
 
 class App extends Component {
@@ -26,7 +28,7 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <div className="app">
                 <BrowserRouter>
                     <div>
                         <Header />
@@ -35,7 +37,9 @@ class App extends Component {
                         <Route path="/register" component={Register} />
                         <Route path="/stats" component={Stats}/>
                         <Route path="/game" component={GameContainer}/>
-                        <Route path="/questions/new" component={SubmitAQuestion}/>
+                        <Route path="/questions" component={QuestionDashboard}/>
+                        <Route path="/questions/new" component={QuestionNew}/>
+
                     </div>
                 </BrowserRouter>
             </div>

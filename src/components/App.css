@@ -1,5 +1,3 @@
-html,
-body,
 
 .app {
     height: 100vh;
@@ -10,4 +8,14 @@ body,
 #form-element {
     display: 'block';
     margin: '10px';
+}
+
+#button-shadow {
+    box-shadow: 0em 0.2em 0.3em gray;
+}
+
+#floating-button-height {
+    position: relative;
+    right: 7vh; /*higher number moves it to the right*/
+    top: 65vh; /*higher number moves it to the bottom */
 }

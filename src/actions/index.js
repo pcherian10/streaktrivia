@@ -1,4 +1,4 @@
-import { FETCH_USER, LOGOUT, FETCH_QUESTION } from "./types"
+import { FETCH_USER, LOGOUT, FETCH_QUESTION, FETCH_STREAK } from "./types"
 import URL_ROOT from './URL'
 
   export const token = localStorage.getItem('token');
@@ -51,21 +51,19 @@ import URL_ROOT from './URL'
 
     //=================================================STREAK FUNCTIONS
 
-  // export const fetchStreak = user_id => {
-  //   return dispatch => {
-  //     fetch(`${URL_ROOT}users/${user_id}/streaks`, {
-  //       method: 'POST',
-  //       headers: headers,
-  //       data: {},
-  //       dataType: "JSON",
-  //       body: JSON.stringify({ user_id })
-  //     })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //         console.log(res)
-  //     })
-  //     }
-  // }
+  export const fetchStreak = user_id => {
+    return dispatch => {
+      fetch(`${URL_ROOT}users/${user_id}/current_streak`, {
+        method: 'GET',
+        headers: headers,
+      })
+      .then(res => res.json())
+      .then(res => {
+        console.log('getting streak from controller', res)
+        dispatch({type: FETCH_STREAK, payload: res.current_streak})
+      })
+      }
+  }
 
 
 

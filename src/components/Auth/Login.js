@@ -64,7 +64,7 @@ class Login extends Component {
     render() {
         const { email, password, loading, errors } = this.state
         return (
-            <Grid textAlign = "center" verticalAlign="top" className="app">
+            <Grid textAlign = "center" verticalAlign="top" >
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as="h2" icon color="green" textAlign="center">
                         <Icon name="question circle" color="green" />

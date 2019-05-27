@@ -97,7 +97,7 @@ class Register extends Component {
         const {username, email, password, passwordConfirmation,loading, errors } = this.state
 
         return (
-            <Grid textAlign = "center" verticalAlign="top" className="app">
+            <Grid textAlign = "center" verticalAlign="top">
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as="h2" icon color="blue" textAlign="center">
                         <Icon name="question circle" color="green" />
