@@ -9,9 +9,9 @@ import './App.css'
 import Header from './Header'
 import GameContainer from './GameContainer'
 import QuestionDashboard from './Questions/QuestionDashboard'
+import QuestionNew from './Questions/QuestionNew'
 
 
-const QuestionNew = () => <h2>QuestionNew</h2>
 const Landing = () => <h2>Landing</h2>
 const Stats = () => <h2>Your stats</h2>
 

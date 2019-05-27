@@ -10,7 +10,7 @@ import URL_ROOT from './URL'
     };
 
 
-  export const handleErrors = (response) => {
+  export const handleErrors = response => {
     console.log(response)
     if (!response.ok) throw Error(response.statusText);
     return response
