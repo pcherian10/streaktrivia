@@ -20,6 +20,7 @@ class GameContainer extends Component {
 
     renderContent = () => {
         const { correctAnswer } = this.state
+        console.log('this.props.streak', this.props.streak )
 
         return (
             <div>

@@ -35,7 +35,6 @@ class PlayGame extends Component {
         const user_id = localStorage.getItem('token')
         const question_id = this.props.question.id
         const answer = this.state.userAnswer
-        console.log(this.state.streak)
 
         fetch(`${URL_ROOT}users/${user_id}/attempts`, {
             method: 'POST',
