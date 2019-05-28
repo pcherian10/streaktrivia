@@ -28,7 +28,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className="app">
+            <div>
                 <BrowserRouter>
                     <div>
                         <Header />
@@ -37,7 +37,7 @@ class App extends Component {
                         <Route path="/register" component={Register} />
                         <Route path="/stats" component={Stats}/>
                         <Route path="/game" component={GameContainer}/>
-                        <Route path="/questions" component={QuestionDashboard}/>
+                        <Route exact path="/questions" component={QuestionDashboard}/>
                         <Route path="/questions/new" component={QuestionNew}/>
 
                     </div>

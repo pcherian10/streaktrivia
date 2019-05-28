@@ -24,7 +24,7 @@ class GameContainer extends Component {
 
         return (
             <div>
-                <Header as="h2" icon color="green" textAlign="center">
+                <Header as="h2" icon color="orange" textAlign="center">
                     Streak: { this.props.streak ? this.props.streak : 0 }
                 </Header>  
                 {this.state.showNextQuestion ?

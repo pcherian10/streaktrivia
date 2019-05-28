@@ -67,7 +67,7 @@ class PlayGame extends Component {
           return (
             <Form onSubmit={this.handleSubmit} size="large">
                 <Segment stacked textAlign="left">
-                    <Header as="h3" icon color="green" textAlign="left">
+                    <Header as="h3" icon color="grey" textAlign="left">
                         {question}
                     </Header>
                     <br></br>

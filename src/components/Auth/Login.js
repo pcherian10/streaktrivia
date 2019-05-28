@@ -64,10 +64,10 @@ class Login extends Component {
     render() {
         const { email, password, loading, errors } = this.state
         return (
-            <Grid textAlign = "center" verticalAlign="top" >
+            <Grid textAlign = "center" verticalAlign="top" className="app">
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as="h2" icon color="green" textAlign="center">
-                        <Icon name="question circle" color="green" />
+                    <Header as="h2" icon color="teal" textAlign="center">
+                        <Icon name="question circle" color="teal" />
                     </Header>
                     {errors.length > 0 && (
                         <Message error>

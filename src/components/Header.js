@@ -81,7 +81,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="ui green inverted menu"> 
+            <div className="ui teal inverted menu"> 
                 <Link 
                     to={this.props.auth ? '/stats' : '/'}
                     className="ui header item large"

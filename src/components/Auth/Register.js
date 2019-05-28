@@ -97,10 +97,10 @@ class Register extends Component {
         const {username, email, password, passwordConfirmation,loading, errors } = this.state
 
         return (
-            <Grid textAlign = "center" verticalAlign="top">
+            <Grid textAlign = "center" verticalAlign="top" className="app">
                 <Grid.Column style={{ maxWidth: 450 }}>
                     <Header as="h2" icon color="blue" textAlign="center">
-                        <Icon name="question circle" color="green" />
+                        <Icon name="question circle" color="teal" />
                         Sign Up for Streak Trivia
                     </Header>
                     {errors.length > 0 && (

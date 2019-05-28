@@ -2,6 +2,7 @@
 .app {
     height: 100vh;
     background: #eee;
+    /* background-image: url('https://gdurl.com/iGAh'); */
     padding: 1em;
 }
 
@@ -13,6 +14,12 @@
 #button-shadow {
     box-shadow: 0em 0.2em 0.3em gray;
 }
+
+#question-choices {
+    position: relative;
+    align-content: center;
+}
+
 
 #floating-button-height {
     position: relative;

@@ -8,9 +8,9 @@ const QuestionDashboard = () => {
         <div> 
             <div id="floating-button-height">      
                 <Link to="/questions/new"
-                    className="massive floated circular ui right floated green icon button"
+                    className="massive floated circular ui right floated teal icon button"
                     id="button-shadow">       
-                    <i class="add icon"></i>
+                    <i className="add icon"></i>
                 </Link>
             </div>
         </div>
