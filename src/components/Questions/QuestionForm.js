@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom' 
-import { Grid, Form, Button, Segment, Checkbox} from 'semantic-ui-react'
+import { Grid, Form, Button, Segment, Checkbox, Header} from 'semantic-ui-react'
 import '../App.css'
 
 class QuestionForm extends Component {
@@ -40,6 +40,7 @@ class QuestionForm extends Component {
                         value={firstChoice}
                     />
                     <Checkbox 
+                        color="green"
                         name="correctAnswerGroup"
                         value={1}
                         checked={correctAnswer === 1}
@@ -57,6 +58,7 @@ class QuestionForm extends Component {
                         value={secondChoice}
                     />
                     <Checkbox 
+                       color="green"
                        name="correctAnswerGroup"
                        value={2}
                        checked={correctAnswer === 2}
@@ -65,6 +67,7 @@ class QuestionForm extends Component {
                 </Form.Group>
                 <Form.Group> 
                     <Form.Input
+                        color="green"
                         icon="arrow right"
                         iconPosition="left"
                         name="thirdChoice" 
@@ -90,7 +93,10 @@ class QuestionForm extends Component {
         return(
             <Grid textAlign="center" verticalAlign="top" className="app">
                 <Grid.Column style={{ maxWidth: 550 }}>
-                    <Form onSubmit={this.handleSubmit} size="large" >
+                    <Header size="small" disabled>
+                        Write your question, choices and set the right answer!
+                    </Header>
+                    <Form onSubmit={this.handleSubmit} >
                         <Form.Input
                             fluid name="question"
                             iconPosition="left"
@@ -106,6 +112,7 @@ class QuestionForm extends Component {
                                 {this.renderChoices()}
                             </div>
                         </Segment>
+
                         <Grid columns={2}>
                             <Grid.Column floated="left">
                                 <Link  to="/questions" className="ui button" >
@@ -118,7 +125,6 @@ class QuestionForm extends Component {
                                 </Button>
                             </Grid.Column>
                         </Grid>
-                    
                     </Form>
                     
                 </Grid.Column>
