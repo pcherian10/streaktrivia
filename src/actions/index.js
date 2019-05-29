@@ -1,4 +1,4 @@
-import { FETCH_USER, LOGOUT, FETCH_QUESTION, FETCH_STREAK } from "./types"
+import { FETCH_USER, LOGOUT, FETCH_QUESTION, FETCH_QUESTIONS, FETCH_STREAK } from "./types"
 import URL_ROOT from './URL'
 
   export const token = localStorage.getItem('token');
@@ -49,6 +49,20 @@ import URL_ROOT from './URL'
       }
   }
 
+  export const fetchQuestions = user_id => {
+    return dispatch => {
+      fetch(`${URL_ROOT}users/${user_id}/questions`, {
+        method: 'GET',
+        headers: headers,
+      })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        dispatch({type: FETCH_QUESTIONS, payload: res})
+      })
+      }
+  }
+
     //=================================================STREAK FUNCTIONS
 
   export const fetchStreak = user_id => {
@@ -64,6 +78,8 @@ import URL_ROOT from './URL'
       })
       }
   }
+
+
 
 
 
