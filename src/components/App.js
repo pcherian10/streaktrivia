@@ -10,10 +10,10 @@ import Header from './Header'
 import GameContainer from './GameContainer'
 import QuestionDashboard from './Questions/QuestionDashboard'
 import QuestionNew from './Questions/QuestionNew'
+import Landing from './Landing'
 
 
-const Landing = () => <h2>Landing</h2>
-const Stats = () => <h2>Your stats</h2>
+const Stats = () => <h2>Your stats (under construction!)</h2>
 
 
 class App extends Component {

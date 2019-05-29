@@ -66,8 +66,9 @@ class Login extends Component {
         return (
             <Grid textAlign = "center" verticalAlign="top" className="app">
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as="h2" icon color="teal" textAlign="center">
+                    <Header as="h2" icon color="blue" textAlign="center">
                         <Icon name="question circle" color="teal" />
+                        Login to Streak Trivia
                     </Header>
                     {errors.length > 0 && (
                         <Message error>
