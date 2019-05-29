@@ -83,7 +83,7 @@ class Header extends Component {
         return (
             <div className="ui teal inverted menu"> 
                 <Link 
-                    to={this.props.auth ? '/stats' : '/'}
+                    to={'/'}
                     className="ui header item large"
                 >  
                     <i className="question circle icon"></i>
