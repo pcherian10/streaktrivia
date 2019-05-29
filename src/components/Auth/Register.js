@@ -15,7 +15,7 @@ class Register extends Component {
         password: "",
         passwordConfirmation: "",
         errors: [],
-        loading: false,
+        loading: false
     }
 
     handleChange = event => {
