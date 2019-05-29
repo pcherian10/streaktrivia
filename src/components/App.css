@@ -1,14 +1,49 @@
-
 .app {
     height: 100vh;
-    background: #eee;
+    background-color: rgb(217, 236, 243);
+    background-size: stretch;
     /* background-image: url('https://gdurl.com/iGAh'); */
     padding: 1em;
 }
 
-#form-element {
-    display: 'block';
-    margin: '10px';
+img {
+    max-width: 100%;
+    max-height: 100%;
 }
+
+.star {
+    height: 100px;
+    width: 100px;
+    top: 40%;
+    opacity: 0.4;
+    position: relative;
+    margin: auto;
+    /* animation: star;
+    animation-duration: 1s;
+    animation-direction: alternate; */
+
+}
+
+/* @keyframes star {
+    0%   {left: 0%;}
+    100% {left: 95%;}
+  } */
+
+
+
+
+/* @keyframes star {
+    0%   {right: 200px} 
+    25%  {right: 200px}
+    50%  {right: 200px}
+    75%  {right: 200px}
+    100% {right: 200px}
+  } */
+
+
+
+
+
+
 
 

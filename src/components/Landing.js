@@ -1,20 +1,13 @@
 import React from 'react'
+import './App.css'
 
-
-let style = {
-    textAlign: 'center',
-    fontSize: '20px',
-    margin: 0,
-    position: 'absolute',
-    top: '50%',
-    right: '35%'
-}
 
 const Landing = () => {
     return (
-        <div style={style}>
-            Welcome to Streak Trivia!
-            (this page under construction)
+        <div className="app">
+            <div className="star">
+                <img alt="streak-star" src="https://gdurl.com/YOuj" />
+            </div>
         </div>
     )
 }

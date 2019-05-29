@@ -12,7 +12,6 @@ class QuestionDashboard extends Component {
 
     componentDidMount() {
         this.props.fetchQuestions(localStorage.getItem('token'));
-        console.log(this.props.questions)
     }
 
     renderQuestions() {
@@ -48,7 +47,7 @@ class QuestionDashboard extends Component {
     render() {
 
         return(
-            <div>
+            <div style={{backgroundColor: 'rgb(217, 236, 243)'}}>
             <div className="ui three column grid">
                 <div className="column"/>
                 <div className="column">
