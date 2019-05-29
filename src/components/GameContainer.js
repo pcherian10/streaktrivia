@@ -24,8 +24,11 @@ class GameContainer extends Component {
 
         return (
             <div>
-                <Header as="h2" icon color="orange" textAlign="center">
-                    Streak: { this.props.streak ? this.props.streak : 0 }
+                <Header as="h2" textAlign="center" style={{ fontFamily: 'Faster One, cursive', color: "orange", fontSize: '45px'}}>
+                    Streak
+                    <div style={{ fontFamily: 'Lato', fontSize: '30px' }}>
+                        { this.props.streak ? this.props.streak : 0 }
+                    </div>
                 </Header>  
                 {this.state.showNextQuestion ?
                     <div> 

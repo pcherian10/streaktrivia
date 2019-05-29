@@ -101,7 +101,7 @@ class PlayGame extends Component {
                     </Form.Field>
                     <br></br>
                 </Segment>
-                <Button color="orange">
+                <Button color="teal">
                     Submit
                 </Button>
             </Form>

@@ -11,13 +11,40 @@ img {
     max-height: 100%;
 }
 
-.star {
+
+.title {
+    position: relative;
+    top: 20%;
+    left: 35%;
+    font-family: 'Faster One', cursive;
+    color:  orange;
+    font-size: 80px;
+    margin: auto;
+    z-index: 100;
+}
+
+.subtitle {
+    top: 25%;
+    position: relative;
+    left: 50%;
+    font-family: 'Faster One', cursive;
+    color:  teal;
+    font-size: 40px;
+    margin: auto;
+    z-index: 100;
+}
+
+
+
+.question-mark {
     height: 100px;
     width: 100px;
-    top: 40%;
-    opacity: 0.4;
+    top: 35%;
+    right: 10%;
+    opacity: 0.2;
     position: relative;
     margin: auto;
+    z-index: 95;
     /* animation: star;
     animation-duration: 1s;
     animation-direction: alternate; */

@@ -81,15 +81,18 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="ui teal inverted menu"> 
+            <div className="ui teal inverted menu" > 
                 <Link 
                     to={'/'}
                     className="ui header item large"
+                    style={{ fontFamily: 'Faster One, cursive', color: "orange", fontSize: '55px', padding: '20px 35px'}}
                 >  
-                    <i className="question circle icon"></i>
-                    Streak Trivia!
+                    S
+                    <div style={{ color: 'teal', fontSize: '55px' }}>
+                        T
+                    </div>
                 </Link>
-                <div className="right item">
+                <div className="right item" style={{fontSize: '18px'}}>
                     {this.renderContent()}
                 </div>
           </div>
