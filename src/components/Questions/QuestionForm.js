@@ -32,7 +32,6 @@ class QuestionForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
 
-
         if(this.isFormValid()) {
             this.setState({ errors: [], loading: true})
             const { question, first_choice, second_choice, 
