@@ -45,11 +45,8 @@ class PlayGame extends Component {
         }).then(handleErrors)
           .then(res => res.json())
           .then(res => {
-                console.log(res)
                 const responseValues = Object.values(this.props.question)
                 const choices = [responseValues[2], responseValues[3], responseValues[4]]
-                console.log(choices)
-
                 this.props.fetchStreak(localStorage.getItem('token'))
 
                 res.correct_answer === 4 ? 
@@ -112,7 +109,15 @@ class PlayGame extends Component {
     render() {
         return(
             <div>
-                {this.renderQuestion()}
+                {this.props.question.message ?
+                    <Header style={{ color: 'teal'}}>
+                            All questions have been attempted. 
+                            <br></br>
+                            Check back soon.
+                    </Header>
+                    :
+                    this.renderQuestion()
+                }
             </div>
         );
     }

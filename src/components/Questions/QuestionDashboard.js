@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchQuestions } from '../../actions'
-import { Container, Button, lightColors } from 'react-floating-action-button'
+import { Container, Button } from 'react-floating-action-button'
 import { Icon, Label, Header } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 
@@ -21,11 +21,11 @@ class QuestionDashboard extends Component {
             
             const renderChoices = choicesArray.map ((choice, index) => {
                     if(index === choicesArray[3]) {
-                        return <Label size="big" style={{ color: 'teal'}}>{choice}</Label>
+                        return <Label key={choice} size="big" style={{ color: 'teal'}}>{choice}</Label>
                     } else if (index === 3) {
                         return null;
                     }
-                    return <Label size="large" color="white">{choice}</Label>
+                    return <Label key={choice} size="large">{choice}</Label>
             })
 
             return (
@@ -51,13 +51,22 @@ class QuestionDashboard extends Component {
             <div className="ui three column grid">
                 <div className="column"/>
                 <div className="column">
-                    <Header>You've contributed {this.props.questions.length} questions!</Header>
+                    {this.props.questions.length ? 
+                        <Header>You've contributed {this.props.questions.length} questions!</Header>
+                        :
+                        <Header style={{margin: 'auto', textAlign: 'center', color: 'teal'}}>
+                            You don't have any live questions ... yet.
+                            <br></br>
+                            The people are waiting, add one below.
+                            <Icon style={{ color: "orange", fontSize: '300px', opacity: '0.2', transform:'translate(40px)'}} name="question circle"></Icon>
+                        </Header>
+                    }
                     {this.renderQuestions()}
                 </div>  
             </div>
-                <Container>
+                <Container style={{ height: '200px', width: '200px'}}>
                     <Button
-                        styles={{backgroundColor: lightColors.teal, color: "white"}}
+                        styles={{backgroundColor: '#FFA500', color: "white"}}
                         tooltip="Add a new question!"
                         onClick={() => this.props.history.push("/questions/new")}
                     >

@@ -6,6 +6,7 @@ import './App.css'
 const Landing = () => {
     return (
         <div className="app">
+
             <div className="question-mark">
                 <Icon style={{ color: "orange", fontSize: '300px'}} name="question circle"></Icon>
             </div>
@@ -16,7 +17,6 @@ const Landing = () => {
                 TRIVIA
             </div>
             <div>
-
             </div>
         </div>
     )
