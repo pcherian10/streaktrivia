@@ -20,7 +20,7 @@ img {
     color:  orange;
     font-size: 80px;
     margin: auto;
-    z-index: 100;
+    z-index: 2;
 }
 
 .subtitle {
@@ -31,10 +31,8 @@ img {
     color:  teal;
     font-size: 40px;
     margin: auto;
-    z-index: 100;
+    z-index: 2;
 }
-
-
 
 .question-mark {
     height: 100px;
@@ -44,7 +42,7 @@ img {
     opacity: 0.2;
     position: relative;
     margin: auto;
-    z-index: 95;
+    z-index: 1
     /* animation: star;
     animation-duration: 1s;
     animation-direction: alternate; */
@@ -67,6 +65,53 @@ img {
     100% {right: 200px}
   } */
 
+
+  #intro {
+    position: absolute;
+    text-align: center;
+    font-size: 3vh;
+    color: teal;
+    width: 35vw;
+    transform: translate(30vw, 40vh);
+  }
+
+  .dropdown {
+    text-align: center;
+    color: white;
+    position:absolute;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    height: 25px;
+    width: 100px;
+    background-color: teal;
+    padding: auto;
+    border-radius: 10px;
+    transform: translate(44vw, 46vh);
+    z-index: 1;
+    margin:auto;
+  } 
+
+  .dropdown-content {
+    font-size: 16px;
+    top: 50%;
+    transform: translate(-37%);
+    color: teal;
+    text-align: center;
+    display:none;
+    background-color: lightblue;
+    /* background-color: #D9EBF3; */
+    height:26vh;
+    width: 30vw;
+    position:relative;
+    padding: 10px;
+    z-index: 1;
+    border-radius: 15px;
+  }
+
+  .dropdown:hover .dropdown-content {
+      display:block;
+  }
 
 
 
