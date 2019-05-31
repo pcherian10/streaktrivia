@@ -6,6 +6,7 @@ import { Form, Segment, Button, Header, Radio } from 'semantic-ui-react'
 import URL_ROOT from '../actions/URL'
 
 
+
 class PlayGame extends Component {
 
     state = { 
@@ -62,7 +63,7 @@ class PlayGame extends Component {
     renderQuestion = () => {
         const { question, first_choice, second_choice, third_choice } = this.props.question
           return (
-            <Form onSubmit={this.handleSubmit} size="large" >
+            <Form onSubmit={this.handleSubmit} size="large">
                 <Segment stacked textAlign="left">
                     <Header as="h3" icon color="grey" textAlign="left">
                         {question}

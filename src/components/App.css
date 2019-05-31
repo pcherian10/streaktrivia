@@ -132,6 +132,10 @@ img {
       scroll-behavior: smooth;
   }
 
+  .radio-button-text {
+    font-size: 10vh;
+  }
+
  
 
 
