@@ -66,7 +66,7 @@ class QuestionDashboard extends Component {
             </div>
                 <Container style={{ height: '200px', width: '200px'}}>
                     <Button
-                        styles={{backgroundColor: '#FFA500', color: "white"}}
+                        styles={{backgroundColor: '#FFA500', color: "white", justifyContent: 'center'}}
                         tooltip="Add a new question!"
                         onClick={() => this.props.history.push("/questions/new")}
                     >
