@@ -56,7 +56,7 @@ class GameContainer extends Component {
 
     render () {
         return (
-            <Grid textAlign="center" verticalAlign="top" className="app">
+            <Grid textAlign="center" verticalAlign="top">
                 <Grid.Column style={{ maxWidth: 450}}> 
                      {this.renderContent()}
                 </Grid.Column>

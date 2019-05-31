@@ -32,7 +32,9 @@ const Landing = () => {
                         to teach them something new. 
                         <span style={{ fontSize:'17px' }}> &#129299;</span>
                     </p>
+                    <div className="scroll" />
                 </div>
+                
             </div>
             
         </div>

@@ -1,13 +1,13 @@
-.app {
+html, 
+body {
     min-height: 100%;
     min-width: 1024px;
     width: 100%;
     height: auto;
-    position: fixed;
     top: 0;
     left: 0;
     background-color: rgb(217, 236, 243);
-    background-size: cover;
+    background-size: contain;
     /* background-image: url('https://gdurl.com/iGAh'); */
     padding: 1em;
 }
@@ -33,7 +33,7 @@ img {
     font-size: 80px;
     margin: auto;
     z-index: 2;
-    transform: translateY(20vh)
+    transform: translateY(15vh)
 }
 
 .subtitle {
@@ -45,7 +45,7 @@ img {
     font-size: 40px;
     margin: auto;
     z-index: 2;
-    transform: translateY(24vh)
+    transform: translateY(20vh)
 }
 
 .question-mark {
@@ -57,7 +57,7 @@ img {
     position: relative;
     margin: auto;
     z-index: 1;
-    transform: translateY(35vh)
+    transform: translateY(25vh)
     /* animation: star;
     animation-duration: 1s;
     animation-direction: alternate; */
@@ -87,7 +87,7 @@ img {
     font-size: 3vh;
     color: teal;
     width: 35vw;
-    transform: translate(30vw, 40vh);
+    transform: translate(30vw, 30vh);
   }
 
   .dropdown {
@@ -102,9 +102,10 @@ img {
     background-color: teal;
     padding: auto;
     border-radius: 10px;
-    transform: translate(44vw, 46vh);
+    transform: translate(44vw, 35vh);
     z-index: 1;
     margin:auto;
+    
   } 
 
   .dropdown-content {
@@ -122,11 +123,18 @@ img {
     padding: 10px;
     z-index: 1;
     border-radius: 15px;
+    margin-bottom:50%;
+    
   }
 
   .dropdown:hover .dropdown-content {
       display:block;
+      scroll-behavior: smooth;
   }
+
+ 
+
+
 
 
 
