@@ -5,8 +5,7 @@ import './App.css'
 
 const Landing = () => {
     return (
-        <div className="app">
-
+        <div>
             <div className="question-mark">
                 <Icon style={{ color: "orange", fontSize: '300px'}} name="question circle"></Icon>
             </div>
@@ -23,7 +22,7 @@ const Landing = () => {
             <div class="dropdown">
                 <span>Instructions</span>
                 <div class="dropdown-content">
-                    <p> Answer questions created by your fellow earthlings. 
+                    <p> Answer questions created by fellow trivia fans. 
                         Earn the longest string of correct
                         answers and you will be made the ruler of all things. 
                         Just kidding, (maybe). <br></br><br></br>

@@ -1,16 +1,28 @@
 .app {
-    height: 100vh;
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: rgb(217, 236, 243);
-    background-size: stretch;
+    background-size: cover;
     /* background-image: url('https://gdurl.com/iGAh'); */
     padding: 1em;
+}
+
+@media screen and ( max-width: 1024px) {
+    .app {
+        left: 50%;
+        margin-left: -512px;
+    }
 }
 
 img {
     max-width: 100%;
     max-height: 100%;
 }
-
 
 .title {
     position: relative;
@@ -21,6 +33,7 @@ img {
     font-size: 80px;
     margin: auto;
     z-index: 2;
+    transform: translateY(20vh)
 }
 
 .subtitle {
@@ -32,6 +45,7 @@ img {
     font-size: 40px;
     margin: auto;
     z-index: 2;
+    transform: translateY(24vh)
 }
 
 .question-mark {
@@ -42,7 +56,8 @@ img {
     opacity: 0.2;
     position: relative;
     margin: auto;
-    z-index: 1
+    z-index: 1;
+    transform: translateY(35vh)
     /* animation: star;
     animation-duration: 1s;
     animation-direction: alternate; */
