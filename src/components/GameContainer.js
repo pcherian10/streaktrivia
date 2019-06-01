@@ -33,8 +33,8 @@ class GameContainer extends Component {
                 {this.state.showNextQuestion ?
                     <div> 
                         <Message hidden={ correctAnswer === "Correct! On to the next!" ? false : true } color={"green"}>
-                            <Icon name="smile outline" size="big"></Icon>
                             {correctAnswer}
+                            <span role="img" aria-label="grinning-face" style={{ fontSize:'18px' }}> &#128512;</span> 
                         </Message>
                         <PlayGame 
                             changeQuestion={this.state.changeQuestion} 

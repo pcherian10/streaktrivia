@@ -5,8 +5,6 @@ import { headers, handleErrors } from '../actions/index'
 import { Form, Segment, Button, Header, Radio } from 'semantic-ui-react'
 import URL_ROOT from '../actions/URL'
 
-
-
 class PlayGame extends Component {
 
     state = { 
