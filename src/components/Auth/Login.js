@@ -36,7 +36,7 @@ class Login extends Component {
                 .then(res => res.json())
                 .then(res => {
                   localStorage.setItem('token', res.id)
-                  window.location.href = '/stats';
+                  window.location.href = '/';
                   this.props.dispatch({type: FETCH_USER, payload: res})
                 })
                 .catch(err => {
