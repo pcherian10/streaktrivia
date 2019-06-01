@@ -19,8 +19,9 @@ import URL_ROOT from './URL'
   //=================================================USER FUNCTIONS
 
   export const getCurrentUser = (email, password) => {
-  return dispatch => fetch(`${URL_ROOT}current_user`, 
-    { headers })
+  return dispatch => fetch(`${URL_ROOT}current_user`,{
+     method: 'GET',
+     headers: headers })
     .then(handleErrors)
     .then(res => res.json())
     .then(res => { dispatch({type: FETCH_USER, payload: res}) })
