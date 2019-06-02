@@ -41,10 +41,11 @@ class Stats extends Component {
 
     render() {
 
-        const { longestStreak, correctOverall, incorrectOverall, ranking } = this.state
+        const { longestStreak, correctOverall, incorrectOverall, ranking, username } = this.state
 
         return (
             <div className="stat-container">
+                  <h1>{username}'s stats</h1>
                   <h1>Your Top Streak:</h1>
                     {longestStreak ?
                         <div className="main-number">{longestStreak}</div>
