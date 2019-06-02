@@ -19,9 +19,9 @@ const Landing = () => {
                 A simple, crowd-sourced trivia game 
                 <br></br>
             </div>
-            <div class="dropdown">
+            <div className="dropdown">
                 <span>Instructions</span>
-                <div class="dropdown-content">
+                <div className="dropdown-content">
                     <p> Answer questions created by fellow trivia fans. 
                         Earn the longest string of correct answers and you will be made the ruler of all things. 
                         <br></br><br></br>
