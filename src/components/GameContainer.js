@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchStreak } from '../actions'
-import { Grid, Header, Message, Icon} from 'semantic-ui-react'
+import { Grid, Header, Message} from 'semantic-ui-react'
 import PlayGame from './PlayGame'
 import RestartGame from './RestartGame'
 
