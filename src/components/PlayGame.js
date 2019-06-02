@@ -61,14 +61,15 @@ class PlayGame extends Component {
     renderQuestion = () => {
         const { question, first_choice, second_choice, third_choice } = this.props.question
           return (
-            <Form onSubmit={this.handleSubmit} size="large">
+            <Form onSubmit={this.handleSubmit} size="">
                 <Segment stacked textAlign="left">
-                    <Header as="h3" icon color="grey" textAlign="left">
+                    <Header style={{fontSize: '1.45em'}} as="h3" icon color="grey" textAlign="left">
                         {question}
                     </Header>
                     <br></br>
                     <Form.Field>
                         <Radio
+                            style={{fontSize: '1.25em'}}                          
                             label={first_choice}
                             value={1}
                             checked={this.state.userAnswer === 1}
@@ -79,6 +80,7 @@ class PlayGame extends Component {
 
                     <Form.Field>
                         <Radio
+                            style={{fontSize: '1.25em'}} 
                             label={second_choice}
                             value={2}
                             checked={this.state.userAnswer === 2}
@@ -89,6 +91,7 @@ class PlayGame extends Component {
 
                     <Form.Field>
                         <Radio
+                            style={{fontSize: '1.25em'}} 
                             label={third_choice}
                             value={3}
                             checked={this.state.userAnswer === 3}
@@ -97,7 +100,7 @@ class PlayGame extends Component {
                     </Form.Field>
                     <br></br>
                 </Segment>
-                <Button color="teal">
+                <Button color="teal" className="fluid large">
                     Submit
                 </Button>
             </Form>

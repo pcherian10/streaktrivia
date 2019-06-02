@@ -11,9 +11,9 @@ import GameContainer from './GameContainer'
 import QuestionDashboard from './Questions/QuestionDashboard'
 import QuestionNew from './Questions/QuestionNew'
 import Landing from './Landing'
+import Stats from './Stats'
 
 
-const Stats = () => <h2>Your stats (under construction!)</h2>
 
 
 class App extends Component {
