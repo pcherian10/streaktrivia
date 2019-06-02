@@ -62,7 +62,7 @@ class Register extends Component {
             this.setState({ errors: errors.concat(error) });
             return false;
         } else if (!this.isPasswordValid(this.state)) {
-            error = { message: "Password is invalid" };
+            error = { message: "Password is invalid, needs to be atleast six characters" };
             this.setState({ errors: errors.concat(error) });
             return false;
         }
